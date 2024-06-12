@@ -11,6 +11,11 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
+    companion object {
+        const val GET_MESSAGES = 1 // Buscar os contatos na contactList do banco de dados
+        const val GET_CONTACTS_INTERVAL = 2000L // Intervalo de busca de contatos
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

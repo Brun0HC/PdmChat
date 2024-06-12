@@ -16,6 +16,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <Button
+        android:id="@+id/SendBt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/send_message"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <ListView
         android:id="@+id/messagesLv"
         android:layout_width="match_parent"
@@ -26,13 +34,6 @@
         app:layout_constraintTop_toBottomOf="@id/toolbarIn" >
     </ListView>
 
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="@string/logout"
-        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
