@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "984842362132",
+    "project_id": "jhgjg-c8517",
+    "storage_bucket": "jhgjg-c8517.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984842362132:android:b64469b5ebd78d7de1b601",
+        "android_client_info": {
+          "package_name": "br.edu.ifsp.scl.ads.contactspdm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMnRq6e-OErTTEeEwPQ1120NRVGEebYQo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984842362132:android:027128acb00ae08ee1b601",
+        "android_client_info": {
+          "package_name": "com.example.pdmchat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMnRq6e-OErTTEeEwPQ1120NRVGEebYQo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

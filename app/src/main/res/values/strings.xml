@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PdmChat</string>
+    <string name="new_message">Message</string>
+    <string name="remetente">From</string>
+    <string name="mensagem">Message</string>
+    <string name="createdAt">date time</string>
+    <string name="receiver_id">Receiver ID</string>
+    <string name="message">Message</string>
+    <string name="send">Send</string>
+    <string name="logout">Logout</string>
+</resources>
