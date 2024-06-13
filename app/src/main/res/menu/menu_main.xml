@@ -4,6 +4,12 @@
     <item
         android:id="@+id/exitApp"
         android:icon="@drawable/ic_add"
-        android:title="@string/logout"
-        app:showAsAction="ifRoom" />
+        android:title="@string/menu"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/action_logout"
+                android:title="@string/logout" />
+        </menu>
+    </item>
 </menu>

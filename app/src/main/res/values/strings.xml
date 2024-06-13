@@ -6,7 +6,8 @@
     <string name="receiver_id">Receiver ID</string>
     <string name="message">Message</string>
     <string name="send">Send</string>
-    <string name="logout">Logout</string>
+    <string name="menu">Menu</string>
     <string name="exit">exit</string>
     <string name="send_message">New Message</string>
+    <string name="logout">Logout</string>
 </resources>

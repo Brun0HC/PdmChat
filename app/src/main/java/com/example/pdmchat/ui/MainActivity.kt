@@ -44,6 +44,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(amb.root)
+        amb.toolbar.toolbar.apply {
+            subtitle = this@MainActivity.javaClass.simpleName
+            setSupportActionBar(this)
+        }
 
         username = intent.getStringExtra("USERNAME")!!
 
@@ -74,18 +78,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.exitApp -> {
+            R.id.action_logout -> {
+                // Finalizar a atividade atual e voltar para a tela de login
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
                 finish()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    fun updateMessagesList(messages: MutableList<Mensagem>) {
-        messageList.clear()
-        messageList.addAll(messages)
-        messageAdapter.notifyDataSetChanged()
     }
 
     val uiUpdaterHandler: Handler = object : Handler(Looper.getMainLooper()) {
@@ -113,9 +115,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun updateChatsList(chats: MutableList<Mensagem>, username: String) {
-        Log.e("CHATS BRUNAO", chats.toString())
         val filteredChats = chats.filter { it.receiver == username }
-        Log.e("CHATS BRUNAO filteredChats", filteredChats.toString())
         messageList.clear()
         messageList.addAll(filteredChats)
         messageAdapter.notifyDataSetChanged()
