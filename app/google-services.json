@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "52141628122",
-    "project_id": "pdmchat-83952",
-    "storage_bucket": "pdmchat-83952.appspot.com"
+    "project_number": "144141612815",
+    "project_id": "pdmchat-7c6b7",
+    "storage_bucket": "pdmchat-7c6b7.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:52141628122:android:ecfccd2cceec561bd863e3",
+        "mobilesdk_app_id": "1:144141612815:android:ff748756111889d7f4b07a",
         "android_client_info": {
           "package_name": "com.example.pdmchat"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyD9lIaGi2bdWnAqu25IjiNgx6fOiKkTuhg"
+          "current_key": "AIzaSyAOsKVklWBvGT-QhTAvfS7RFr7KmvlyNVE"
         }
       ],
       "services": {

@@ -8,13 +8,24 @@
     tools:context=".ui.MainActivity">
 
     <include
-        android:id="@+id/toolbarIn"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         layout="@layout/toolbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ListView
+        android:id="@+id/messageLv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/SendBt"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        />
 
     <Button
         android:id="@+id/SendBt"
@@ -23,17 +34,5 @@
         android:text="@string/send_message"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <ListView
-        android:id="@+id/messagesLv"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarIn" >
-    </ListView>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

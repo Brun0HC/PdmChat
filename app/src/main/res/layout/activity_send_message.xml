@@ -7,12 +7,14 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/receiverEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/receiver_id"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/messageEditText"
@@ -21,7 +23,8 @@
         android:hint="@string/message"
         android:maxLength="150"
         app:layout_constraintTop_toBottomOf="@id/receiverEditText"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/sendButton"
@@ -29,7 +32,7 @@
         android:layout_height="wrap_content"
         android:text="@string/send"
         app:layout_constraintTop_toBottomOf="@id/messageEditText"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
