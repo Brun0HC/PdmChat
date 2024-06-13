@@ -39,11 +39,13 @@ class MainActivity : AppCompatActivity() {
         MensagemAdapter(this, messageList)
     }
 
+    private var username = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(amb.root)
 
-        val username = intent.getStringExtra("USERNAME")
+        username = intent.getStringExtra("USERNAME")!!
 
         amb.SendBt.setOnClickListener {
             val intent = Intent(this, SendMessageActivity::class.java)
@@ -93,39 +95,29 @@ class MainActivity : AppCompatActivity() {
                 // Busca os contatos
                 //val messages = messageController.getMessages()
                 //updateMessagesList(messages)
+                messageController.getMessages()
                 sendMessageDelayed(
                     Message.obtain().apply {
                         what = GET_MESSAGES
                     },
                     GET_MESSAGES_INTERVAL
                 )
-                postDelayed({
-                    messageController.getMessages()
-                }, 1000)
             }else {
                 msg.data.getParcelableArrayList<Mensagem>("MESSAGE_ARRAY")?.let { _chatArray ->
                     Log.d("MainActivity", "Chats recebidos: $_chatArray")
 
-                    updateChatsList(_chatArray.toMutableList(), "TESTE")
+                    updateChatsList(_chatArray.toMutableList(), username)
                 }
             }
         }
     }
 
     fun updateChatsList(chats: MutableList<Mensagem>, username: String) {
+        Log.e("CHATS BRUNAO", chats.toString())
         val filteredChats = chats.filter { it.receiver == username }
-
-        if (messageList.isEmpty()) {
-            messageList.addAll(filteredChats)
-        } else {
-            for (chat in filteredChats) {
-                if (!messageList.contains(chat)) {
-                    messageList.add(0, chat)
-                }
-            }
-            messageList.retainAll(filteredChats)
-        }
-
+        Log.e("CHATS BRUNAO filteredChats", filteredChats.toString())
+        messageList.clear()
+        messageList.addAll(filteredChats)
         messageAdapter.notifyDataSetChanged()
     }
 }

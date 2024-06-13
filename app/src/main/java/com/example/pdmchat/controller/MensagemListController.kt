@@ -14,9 +14,14 @@ class MensagemListController(private val mainActivity: MainActivity){
     fun getMessages() {
         val chatList = messageDaoImpl.retrieveMessages()
         if (chatList.isNotEmpty()) {
-            mainActivity.runOnUiThread {
-                mainActivity.updateMessagesList(chatList)
-            }
+            mainActivity.uiUpdaterHandler.sendMessage(
+                Message.obtain().apply{
+                    data.putParcelableArrayList(
+                        "MESSAGE_ARRAY",
+                        ArrayList(chatList)
+                    )
+                }
+            )
         }
     }
 }
