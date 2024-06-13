@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
+import android.util.Log
 import com.example.pdmchat.R
 import com.example.pdmchat.databinding.ActivityMainBinding
 import com.example.pdmchat.controller.MensagemListController
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     // Controller
     private val messageController: MensagemListController by lazy {
-        MensagemListController()
+        MensagemListController(this)
     }
 
     // Adapter
@@ -86,18 +87,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     val uiUpdaterHandler: Handler = object : Handler(Looper.getMainLooper()) {
-        override fun handleMessage(msg: Message) {
+        override fun handleMessage(msg: android.os.Message) {
             super.handleMessage(msg)
             if (msg.what == GET_MESSAGES) {
                 // Busca os contatos
-                val messages = messageController.getMessages()
-                updateMessagesList(messages)
+                //val messages = messageController.getMessages()
+                //updateMessagesList(messages)
                 sendMessageDelayed(
                     Message.obtain().apply {
                         what = GET_MESSAGES
                     },
                     GET_MESSAGES_INTERVAL
                 )
+                postDelayed({
+                    messageController.getMessages()
+                }, 1000)
+            }else {
+                msg.data.getParcelableArrayList<Mensagem>("MESSAGE_ARRAY")?.let { _chatArray ->
+                    Log.d("MainActivity", "Chats recebidos: $_chatArray")
+
+                    updateChatsList(_chatArray.toMutableList(), "TESTE")
+                }
             }
         }
     }

@@ -23,31 +23,33 @@ class MensagemDaoImp : MensagemDao {
     private var isFirstValueEvent = true
 
     init {
-        // Chamado sempre que houver uma modificação no banco de dados de tempo real do Firebase
         messageRtDbFbReference.addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
-                val message = snapshot.getValue<Mensagem>()
+                val message = snapshot.getValue(Mensagem::class.java)
                 if (message != null) {
                     messageList.add(message)
+                    Log.d("MensagemDaoImp", "Mensagem adicionada: $message")
                 }
             }
 
             override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
-                val message = snapshot.getValue<Mensagem>()
+                val message = snapshot.getValue(Mensagem::class.java)
                 if (message != null) {
                     val index = messageList.indexOfFirst { it.id == message.id }
                     if (index != -1) {
                         messageList[index] = message
+                        Log.d("MensagemDaoImp", "Mensagem atualizada: $message")
                     }
                 }
             }
 
             override fun onChildRemoved(snapshot: DataSnapshot) {
-                val message = snapshot.getValue<Mensagem>()
+                val message = snapshot.getValue(Mensagem::class.java)
                 if (message != null) {
                     val index = messageList.indexOfFirst { it.id == message.id }
                     if (index != -1) {
                         messageList.removeAt(index)
+                        Log.d("MensagemDaoImp", "Mensagem removida: $message")
                     }
                 }
             }
@@ -57,7 +59,6 @@ class MensagemDaoImp : MensagemDao {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Tratamento de erro
                 error.toException().printStackTrace()
             }
         })
